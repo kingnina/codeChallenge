@@ -6,6 +6,7 @@ import java.io.*;
  * Insight data Engineering
  */
 public class wordCount {
+// The key of this TreeMap is the word and the value is the number of ocurrences
 static TreeMap<String, Integer> wordCount = new TreeMap<String, Integer>();
 String path;
 
@@ -25,10 +26,13 @@ String path;
 	public String readFile() throws Exception{
 		String stream = "";
 		String line = null;
+		//get the path of this java file
 		File thisFile = new File(System.getProperty("user.dir"));
+		//get the path of wc_input directory
 		path = thisFile.getParentFile().getAbsolutePath();
 		File folder = new File(path+"/wc_input");
 		File[] listOfFiles = folder.listFiles();
+		//combine all the files into one stream
 		for (File file : listOfFiles){
 			if (file.getName().endsWith(".txt")){
 				FileReader fr = new FileReader(file);
