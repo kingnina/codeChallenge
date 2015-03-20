@@ -7,6 +7,8 @@ import java.io.*;
  */
 public class wordCount {
 static TreeMap<String, Integer> wordCount = new TreeMap<String, Integer>();
+String path;
+
 	public static void main(String[] args) throws Exception {
 		wordCount Counter = new wordCount();
 		String stream = Counter.readFile();
@@ -23,8 +25,9 @@ static TreeMap<String, Integer> wordCount = new TreeMap<String, Integer>();
 	public String readFile() throws Exception{
 		String stream = "";
 		String line = null;
-		String path = System.getProperty("user.dir") +"/wc_input";
-		File folder = new File(path);
+		File thisFile = new File(System.getProperty("user.dir"));
+		path = thisFile.getParentFile().getAbsolutePath();
+		File folder = new File(path+"/wc_input");
 		File[] listOfFiles = folder.listFiles();
 		for (File file : listOfFiles){
 			if (file.getName().endsWith(".txt")){
@@ -71,8 +74,7 @@ static TreeMap<String, Integer> wordCount = new TreeMap<String, Integer>();
 	 * @throws IOException
 	 */
 	public void writeToFile(TreeMap<String, Integer> wc) throws IOException{
-		String path = System.getProperty("user.dir")+"/wc_output"+"/wc_result.txt";
-		FileWriter fw = new FileWriter(path);
+		FileWriter fw = new FileWriter(path+"/wc_output"+"/wc_result.txt");
 		for (String key: wc.keySet()){
 			fw.write(key+" "+wc.get(key)+"\n");
 		}
