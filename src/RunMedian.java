@@ -24,8 +24,9 @@ static List<String> lines = new ArrayList<String>();
 	 * sort all the files in alphabetical order 
 	 */
 	public void sortFiles(){
-		path = System.getProperty("user.dir")+"/wc_input";
-		File folder = new File(path);
+		File thisFile = new File(System.getProperty("user.dir"));
+		path = thisFile.getParentFile().getAbsolutePath();
+		File folder = new File(path+"/wc_input");
 		listofFiles = folder.listFiles();
 		//process files to an alphabetical order
 		for (File file:listofFiles){
@@ -42,7 +43,7 @@ static List<String> lines = new ArrayList<String>();
 		String line="";
 		for (String name : filenames){
 			if (name.endsWith(".txt")){
-				File newfile = new File(path+"/"+name);
+				File newfile = new File(path+"/wc_input"+"/"+name);
 				BufferedReader br = new BufferedReader(new FileReader(newfile));
 				while((line=br.readLine())!=null){
 					lines.add(line);
@@ -70,8 +71,7 @@ static List<String> lines = new ArrayList<String>();
 	public void runMedian() throws IOException{
 		List<Integer> values = new ArrayList<Integer>();
 		double median = 0;
-		String path = System.getProperty("user.dir")+"/wc_output"+"/med_result.txt";
-		FileWriter writer = new FileWriter(path);
+		FileWriter writer = new FileWriter(path+"/wc_output"+"/med_result.txt");
 		for(String sen:lines){
 			StringTokenizer tokenizer = new StringTokenizer(sen);
 			values.add(tokenizer.countTokens());
