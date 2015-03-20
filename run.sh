@@ -1,8 +1,7 @@
 #!/bin/bash -x
 
-# change to the directory of source code
-cd ./src
-
+#Change directory to the /src
+cd src
 #Compile Java Files
 javac wordCount.java
 javac RunMedian.java
