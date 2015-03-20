@@ -9,7 +9,9 @@ import java.util.*;
 public class RunMedian {
 String path;
 File[] listofFiles;
+// a list of file names in the wc_input folder
 List<String> filenames = new ArrayList<String>();
+// sentences in all files
 static List<String> lines = new ArrayList<String>();
 	public static void main(String[] args) throws Exception {
 		RunMedian runMedian = new RunMedian();
