@@ -1,5 +1,5 @@
 # codeChallenge
-***Word Count***
+**Word Count**
 The java program wordCount.java counts all the words from the text files contained in a directory named /wc_input. Then it outputs the result to a file named wc_result.txt in the directory /wc_output.
 
 ***Running Median***
